@@ -1,4 +1,5 @@
 import $ from 'jquery'
+window.jQuery = window.$ = $
 require('../lib/jquery.deparam')
 
 export default {
