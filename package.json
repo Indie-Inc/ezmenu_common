@@ -1,0 +1,28 @@
+{
+  "name": "townhunt_common",
+  "version": "0.1.0",
+  "description": "Townhunt Common Modules",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Indie-Inc/townhunt_common.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "tejitak"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Indie-Inc/townhunt_common/issues"
+  },
+  "private": true,
+  "homepage": "https://github.com/Indie-Inc/townhunt_common",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+  },
+  "devDependencies": {
+  }
+}
