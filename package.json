@@ -17,12 +17,10 @@
   },
   "private": true,
   "homepage": "https://github.com/Indie-Inc/townhunt_common",
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "jquery": "^2.1.4"
   },
-  "peerDependencies": {
-  },
-  "devDependencies": {
-  }
+  "peerDependencies": {},
+  "devDependencies": {}
 }

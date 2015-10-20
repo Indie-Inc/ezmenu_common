@@ -1,0 +1,7 @@
+node_modules/
+bower_components/
+data/
+tmp/
+.DS_Store
+dump.rdb
+npm-debug.log

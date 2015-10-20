@@ -1,4 +1,5 @@
 import $ from 'jquery'
+require('../lib/jquery.deparam')
 
 export default {
 
