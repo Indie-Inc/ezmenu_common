@@ -1,0 +1,143 @@
+.component__menu_viewer
+  margin 16px 0
+  font-family "Bariol",sans-serif
+
+.menu_viewer_nav
+  list-style none
+  text-align center
+
+  .menu_viewer_tab
+    display inline-block
+    border-radius 8px
+    color #999
+    letter-spacing 1px
+    cursor pointer
+    margin 8px
+    padding 10px 15px
+    font-weight bold
+    font-size 14px
+    transition all 0.2s ease 0s
+    border 1px solid transparent
+
+    &:hover
+      border 1px solid #ddd
+      color #333
+
+    &.menu_viewer_tab_selected
+      border 1px solid #CCC
+      color #666
+
+.menu_viewer_selection
+  text-align right
+  list-style none
+
+  .menu_viewer_lang
+    margin 0px 8px
+    display inline-block
+
+    a
+      color #666
+      text-decoration none
+
+    &.menu_viewer_lang_selected
+      text-decoration underline
+
+.menu_viewer_info
+  margin 0 8px
+  color #333
+  text-align right
+
+.menu_viewer_desc
+  margin 16px
+  color #333
+  text-align center
+  font-weight 300
+  font-size 14px
+
+.menu_viewer_section_name
+  color #333
+  margin 24px auto
+  font-size 24px
+  font-weight bold
+  text-align center
+
+.menu_viewer_subsection_name
+    margin 5px 0px 20px
+    font-size 18px
+    color #666
+    font-weight 300
+    text-align center
+
+.menu_viewer_item_wrap
+  vendor('column-count', 2)
+  vendor('column-gap', 15px)
+  vendor('column-fill', balance)
+
+  li
+    width 100%
+    display inline-block
+    background #FEFEFE
+    margin 0 2px 15px
+    vendor('column-break-inside', avoid)
+
+.component__menu_item_viewer
+  padding 15px
+  padding-bottom 5px
+
+  .menu_item_viewer_name
+    color #333
+    line-height 20px
+    margin-right 10px
+    font-weight bold
+    display inline
+    font-size 15px
+
+  .menu_item_viewer_price
+    float right
+    color #333
+    margin-left 5px
+    font-weight bold
+    font-size 15px
+
+  .menu_item_viewer_desc
+    color #666
+    font-weight 300
+    padding-top 3px
+    font-size 14px
+
+.component__menu_option_group_viewer
+  margin-top 8px
+  margin-bottom 4px
+  color #666
+  font-weight 300
+
+  .menu_option_group_title
+    font-size 13px
+    margin-bottom 5px
+
+  .menu_option_item
+    display inline-block
+    margin-right 20px
+    margin-bottom 3px
+    color #333  
+
+    .menu_option_item_name
+      display inline
+      font-style italic
+      font-size 14px
+
+    .menu_option_item_price
+      display inline
+      font-size 14px
+      font-weight bold
+      margin-left 4px
+
+@media (max-width: 650px)
+  .menu_viewer_item_wrap
+    vendor('column-count', 1)
+
+  .menu_viewer_selection
+    text-align center
+
+    .menu_viewer_lang
+      margin 8px
