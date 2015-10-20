@@ -303,6 +303,21 @@ export default {
         value: "A1313"
       }
     ]
-  }
+  },
+
+  langOptions: [
+    {
+      value: "ja",
+      text: "日本語"
+    },
+    {
+      value: "en",
+      text: "English"
+    },
+    {
+      value: "ch",
+      text: "中文"
+    }
+  ]
 
 }
