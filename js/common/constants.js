@@ -315,7 +315,7 @@ export default {
       text: "English"
     },
     {
-      value: "ch",
+      value: "zh-CN",
       text: "中文"
     }
   ]

@@ -2,7 +2,7 @@
     <div class="component__menu_viewer">
       <div class="menu_viewer_wrap">
         <div class="menu_viewer_head">
-          <div class="menu_viewer_lang">
+          <div class="menu_viewer_lang" v-show="showLangSeleciton">
             <ul class="menu_viewer_selection">
               <li class="menu_viewer_lang" v-repeat="langOptions" v-class="menu_viewer_lang_selected: value == selectedLang"><a href="javascript:;" v-on="click: onClickLang(value)">{{text}}</a></li>
             </ul>
@@ -44,13 +44,28 @@ import ComponentOptionGroupViewer from './OptionGroupViewer.vue'
 
 export default {
 
-  props: ['menus', 'selectedLang', 'selectedMenuIndex'],
+  props: ['menus', 'selectedLang', 'selectedMenuIndex', 'showLangSeleciton'],
 
   data() {
     return {
+      showLangSeleciton: true,
       selectedLang: 'ja',
       selectedMenuIndex: 0,
-      menus: []
+      menus: [],
+      defaultLangOptions: [
+        {
+          'value': 'ja',
+          'text': '日本語'
+        },
+        {
+          'value': 'en',
+          'text': 'English'
+        },
+        {
+          'value': 'zh-CN',
+          'text': '中文'
+        }
+      ]
     }
   },
 
@@ -59,25 +74,32 @@ export default {
     'component-option-group-viewer': ComponentOptionGroupViewer
   },
 
+  created() {
+    // validate input lang
+    var initialLang = this.selectedLang
+    // if no options exist, fall back to English
+    var match = false
+    this.defaultLangOptions.forEach((obj) => {
+      if (initialLang === obj.value) {
+        match = true
+      }
+    })
+    if (!match) {
+      this.selectedLang = 'en'
+    }
+    // validate input menuIndex
+    if (!this.menus[this.selectedMenuIndex]) {
+      this.selectedMenuIndex = 0
+    }
+  },
+
   computed: {
     langOptions() {
       // temp to show only items which has menu_name_xx in each language
       var options = []
       var firstMenu = this.menus[0]
       if (firstMenu) {
-        var defaultOptions = [{
-          'value': 'ja',
-          'text': '日本語'
-        },
-        {
-          'value': 'en',
-          'text': 'English'          
-        },
-        {
-          'value': 'ch',
-          'text': '中文'
-        }]
-        defaultOptions.forEach((obj) => {
+        this.defaultLangOptions.forEach((obj) => {
           if (firstMenu['menu_name_' + obj.value]) {
             options.push(obj)
           }
