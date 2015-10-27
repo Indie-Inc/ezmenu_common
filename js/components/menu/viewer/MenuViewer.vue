@@ -18,9 +18,9 @@
             <div class="menu_viewer_info_label" v-show="selectedMenu.tax_included">Tax included</div>
           </div-->
           <div class="menu_viewer_section" v-repeat="selectedMenu.section_items">
-            <h2 class="menu_viewer_section_name">{{$data['section_name_' + selectedLang]}}</h2>
+            <h2 class="menu_viewer_section_name" v-show="$data['section_name_' + selectedLang]"><span>{{$data['section_name_' + selectedLang]}}</span></h2>
             <div class="menu_viewer_subsection" v-repeat="subsections">
-              <h3 class="menu_viewer_subsection_name">{{$data['subsection_name_' + selectedLang]}}</h3>
+              <h3 class="menu_viewer_subsection_name" v-show="$data['subsection_name_' + selectedLang]">{{$data['subsection_name_' + selectedLang]}}</h3>
               <ul class="menu_viewer_item_wrap">
                 <li v-repeat="contents">
                   <component-item-viewer item="{{$data}}" selected-lang="{{selectedLang}}"></component-item-viewer>
@@ -34,6 +34,12 @@
             </div>
           </div>
         </div>
+
+        <div v-show="showFooter" class="menu_viewer_footer">
+          <span class="footer_provider">
+            Powered by <a href="http://ezmenu.jp/">EzMenu</a>
+          </span>
+        </div>
       </div>
     </div>
 </template>
@@ -44,11 +50,12 @@ import ComponentOptionGroupViewer from './OptionGroupViewer.vue'
 
 export default {
 
-  props: ['menus', 'selectedLang', 'selectedMenuIndex', 'showLangSeleciton'],
+  props: ['menus', 'selectedLang', 'selectedMenuIndex', 'showLangSeleciton', 'showFooter'],
 
   data() {
     return {
       showLangSeleciton: true,
+      showFooter: false,
       selectedLang: 'ja',
       selectedMenuIndex: 0,
       menus: [],
@@ -75,7 +82,6 @@ export default {
   },
 
   created() {
-    // validate input lang
     var initialLang = this.selectedLang
     // if no options exist, fall back to English
     var match = false
@@ -86,10 +92,6 @@ export default {
     })
     if (!match) {
       this.selectedLang = 'en'
-    }
-    // validate input menuIndex
-    if (!this.menus[this.selectedMenuIndex]) {
-      this.selectedMenuIndex = 0
     }
   },
 

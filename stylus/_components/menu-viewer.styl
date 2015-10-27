@@ -1,6 +1,5 @@
 .component__menu_viewer
   margin 8px 0
-  font-family "Bariol",sans-serif
 
 .menu_viewer_nav
   list-style none
@@ -57,9 +56,32 @@
 .menu_viewer_section_name
   color #333
   margin 24px auto
-  font-size 24px
+  font-size 20px
   font-weight bold
   text-align center
+  overflow hidden
+  letter-spacing 3px
+
+  span
+    display inline-block
+    position relative
+    max-width 80%
+
+    &:before
+      right 100%
+
+    &:after
+      left 100%
+
+    &:before, &:after
+      content ""
+      width 100000px
+      height 2px
+      position absolute
+      margin 0 15px
+      background #000000
+      top 50%
+      margin-top -1px
 
 .menu_viewer_subsection_name
     margin 5px 0px 20px
@@ -79,6 +101,14 @@
     background #FEFEFE
     margin 0 2px 15px
     vendor('column-break-inside', avoid)
+
+.menu_viewer_footer
+  border-top 1px solid #ddd
+  padding-top 20px
+  margin-top 20px
+
+  .footer_provider
+    float right
 
 .component__menu_item_viewer
   padding 15px
