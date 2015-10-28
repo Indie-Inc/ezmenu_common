@@ -59,7 +59,7 @@ export default {
       default: 'ja'
     },
     'selectedMenuIndex': {
-      // type: Number,
+      type: Number,
       default: 0
     },
     'showLangSeleciton': {
