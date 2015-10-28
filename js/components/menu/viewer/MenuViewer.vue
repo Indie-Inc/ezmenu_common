@@ -4,11 +4,11 @@
         <div class="menu_viewer_head">
           <div class="menu_viewer_lang" v-show="showLangSeleciton">
             <ul class="menu_viewer_selection">
-              <li class="menu_viewer_lang" v-repeat="langOptions" v-class="menu_viewer_lang_selected: value == selectedLang"><a href="javascript:;" v-on="click: onClickLang(value)">{{text}}</a></li>
+              <li class="menu_viewer_lang" v-for="lang in langOptions" :class="{menu_viewer_lang_selected: lang.value == selectedLang}"><a href="javascript:;" @click="onClickLang(lang.value)">{{lang.text}}</a></li>
             </ul>
           </div>
           <ul class="menu_viewer_nav">
-            <li class="menu_viewer_tab" v-repeat="menus" v-class="menu_viewer_tab_selected: $index == selectedMenuIndex" v-on="click: onClickTab($index)">{{$data['menu_name_' + selectedLang]}}</li>
+            <li class="menu_viewer_tab" v-for="menu in menus" :class="{menu_viewer_tab_selected: $index == selectedMenuIndex}" @click="onClickTab($index)">{{menu['menu_name_' + selectedLang]}}</li>
           </ul>
         </div>
 
@@ -17,18 +17,18 @@
           <!--div class="menu_viewer_info">
             <div class="menu_viewer_info_label" v-show="selectedMenu.tax_included">Tax included</div>
           </div-->
-          <div class="menu_viewer_section" v-repeat="selectedMenu.section_items">
-            <h2 class="menu_viewer_section_name" v-show="$data['section_name_' + selectedLang]"><span>{{$data['section_name_' + selectedLang]}}</span></h2>
-            <div class="menu_viewer_subsection" v-repeat="subsections">
-              <h3 class="menu_viewer_subsection_name" v-show="$data['subsection_name_' + selectedLang]">{{$data['subsection_name_' + selectedLang]}}</h3>
+          <div class="menu_viewer_section" v-for="sectionItem in selectedMenu.section_items">
+            <h2 class="menu_viewer_section_name" v-show="sectionItem['section_name_' + selectedLang]"><span>{{sectionItem['section_name_' + selectedLang]}}</span></h2>
+            <div class="menu_viewer_subsection" v-for="subsection in sectionItem.subsections">
+              <h3 class="menu_viewer_subsection_name" v-show="subsection['subsection_name_' + selectedLang]">{{subsection['subsection_name_' + selectedLang]}}</h3>
               <ul class="menu_viewer_item_wrap">
-                <li v-repeat="contents">
-                  <component-item-viewer item="{{$data}}" selected-lang="{{selectedLang}}"></component-item-viewer>
+                <li v-for="content in subsection.contents">
+                  <component-item-viewer :item="content" :selected-lang="selectedLang"></component-item-viewer>
                 </li>
               </ul>
               <div class="menu_viewer_option_groups_wrap">
-                <div v-repeat="option_groups">
-                  <component-option-group-viewer item="{{$data}}" selected-lang="{{selectedLang}}"></component-option-group-viewer>
+                <div v-for="optionGroup in subsection.option_groups">
+                  <component-option-group-viewer :item="optionGroup" :selected-lang="selectedLang"></component-option-group-viewer>
                 </div>
               </div>
             </div>
@@ -50,15 +50,30 @@ import ComponentOptionGroupViewer from './OptionGroupViewer.vue'
 
 export default {
 
-  props: ['menus', 'selectedLang', 'selectedMenuIndex', 'showLangSeleciton', 'showFooter'],
+  props: {
+    'menus': {
+      type: Array
+    },
+    'selectedLang': {
+      type: String,
+      default: 'ja'
+    },
+    'selectedMenuIndex': {
+      // type: Number,
+      default: 0
+    },
+    'showLangSeleciton': {
+      type: Boolean,
+      default: true
+    },
+    'showFooter': {
+      type: Boolean,
+      default: false
+    }
+  },
 
   data() {
     return {
-      showLangSeleciton: true,
-      showFooter: false,
-      selectedLang: 'ja',
-      selectedMenuIndex: 0,
-      menus: [],
       defaultLangOptions: [
         {
           'value': 'ja',

@@ -4,8 +4,8 @@
       <div class="menu_item_viewer_price" v-show="item.price > 0">¥{{item.price}}</div>
       <div class="menu_item_viewer_desc">{{item['description_' + selectedLang]}}</div>
       <div class="menu_viewer_option_groups_wrap">
-        <div v-repeat="item.option_groups">
-          <component-option-group-viewer item="{{$data}}" selected-lang="{{selectedLang}}"></component-option-group-viewer>
+        <div v-for="optionGroup in item.option_groups">
+          <component-option-group-viewer :item="optionGroup" :selected-lang="selectedLang"></component-option-group-viewer>
         </div>
       </div>
     </div>
@@ -16,21 +16,27 @@ import ComponentOptionGroupViewer from './OptionGroupViewer.vue'
 
 export default {
 
-  props: ['item', 'selectedLang'],
+  props: {
+    'item': {
+      type: Object
+      // {
+      //   "type":"MenuItem",
+      //   "price":0,
+      //   "name_ja":"",
+      //   "name_en":"",
+      //   "description_ja":"",
+      //   "description_en":"",
+      //   "option_groups":[]
+      // }
+    },
+    'selectedLang': {
+      type: String,
+      default: 'ja'
+    }
+  },
 
   data() {
-    // {
-    //   "type":"MenuItem",
-    //   "price":0,
-    //   "name_ja":"",
-    //   "name_en":"",
-    //   "description_ja":"",
-    //   "description_en":"",
-    //   "option_groups":[]
-    // }
     return {
-      selectedLang: 'ja',
-      item: {}
     }
   },
 
