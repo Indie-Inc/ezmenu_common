@@ -105,6 +105,7 @@ export default {
 
   reservationAvailabilities: [
     {text: 'N/A', value: ''},
+    {text: 'Must', value: 'must'},
     {text: 'Yes', value: 'yes'},
     {text: 'No', value: 'no'}
   ],
