@@ -113,6 +113,29 @@ var util = {
         }
       }
       return results
+    },
+
+    showError(err) {
+      if (!err) { return }
+      // {"message":"Restaurant validation failed","name":"ValidationError","errors":{"url_key":{"properties":{"type":"user defined","message":"The URL Key needs to be more than 4 characters.","path":"url_key","value":"aa"},"message":"The URL Key needs to be more than 4 characters.","name":"ValidatorError","kind":"user defined","path":"url_key","value":"aa"}},"status":400,"isApiError":true}
+      var msgs = []
+      // xhr error
+      if (err.responseText) {
+        try {
+          err = JSON.parse(err.responseText)
+        } catch(e) {}
+      }
+      if (err.errors) {
+        var errors = err.errors
+        for (var name in errors) {
+          if (name && errors[name]) {
+            msgs.push(errors[name].message)
+          }
+        }
+      } else {
+        msgs.push(JSON.stringify(err))
+      }
+      alert(msgs.join('\n'))
     }
 }
 
