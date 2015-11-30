@@ -1,11 +1,11 @@
 {
-  "name": "townhunt_common",
+  "name": "ezmenu_common",
   "version": "0.1.0",
-  "description": "Townhunt Common Modules",
+  "description": "ezmenu Common Modules",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Indie-Inc/townhunt_common.git"
+    "url": "git+https://github.com/Indie-Inc/ezmenu_common.git"
   },
   "keywords": [],
   "author": {
@@ -13,10 +13,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Indie-Inc/townhunt_common/issues"
+    "url": "https://github.com/Indie-Inc/ezmenu_common/issues"
   },
   "private": true,
-  "homepage": "https://github.com/Indie-Inc/townhunt_common",
+  "homepage": "https://github.com/Indie-Inc/ezmenu_common",
   "scripts": {},
   "dependencies": {
     "jquery": "^2.1.4"
