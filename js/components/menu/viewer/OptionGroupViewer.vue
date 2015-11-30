@@ -4,7 +4,7 @@
       <div class="manu_options_wrap">
         <div class="menu_option_item" v-for="option in item.options">
           <div class="menu_option_item_name">{{option['name_' + selectedLang]}}</div>
-          <div class="menu_option_item_price" v-show="option.price > 0">¥{{option.price}}</div>
+          <div class="menu_option_item_price" v-show="option.price > 0">¥{{option.price | numberFormat}}</div>
         </div>
       </div>
     </div>
