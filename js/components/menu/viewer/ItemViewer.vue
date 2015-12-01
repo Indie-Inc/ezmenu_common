@@ -1,7 +1,7 @@
 <template>
     <div class="component__menu_item_viewer">
       <div class="menu_item_viewer_name">{{item['name_' + selectedLang]}}</div>
-      <div class="menu_item_viewer_price" v-show="item.price > 0">¥{{item.price | numberFormat}}</div>
+      <div class="menu_item_viewer_price" v-show="item.price !== 0">¥{{item.price | numberFormat}}</div>
       <div class="menu_item_viewer_desc">{{item['description_' + selectedLang]}}</div>
       <div class="menu_viewer_option_groups_wrap">
         <div v-for="optionGroup in item.option_groups">
