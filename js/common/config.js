@@ -1,5 +1,4 @@
-import $ from 'jquery'
-
+var $ = window.jQuery || window.Zepto
 var globalConfig = (window.OPTION && window.OPTION.config) || {}
 
 var parseKeys = {
