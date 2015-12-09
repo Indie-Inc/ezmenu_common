@@ -1,7 +1,7 @@
 <template>
   <div class="component__menu_item_viewer">
     <div class="menu_item_viewer_left" v-if="item.image">
-      <img :src="item.image.url">
+      <img :src="item.image.url | resizeImage 200">
     </div>
     <div class="menu_item_viewer_right">
       <div class="menu_item_viewer_name">{{item['name_' + selectedLang]}}</div>
@@ -18,6 +18,7 @@
 
 <script lang="babel">
 import ComponentOptionGroupViewer from './OptionGroupViewer.vue'
+import filter from '../../../common/filter.js'
 
 export default {
 
