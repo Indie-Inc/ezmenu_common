@@ -1,4 +1,3 @@
-window.jQuery = window.$ = $
 require('../lib/jquery.deparam')
 
 export default {

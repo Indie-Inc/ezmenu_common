@@ -1,7 +1,7 @@
 <template>
   <div class="component__menu_item_viewer">
-    <div class="menu_item_viewer_left" v-if="item.image_url">
-      <img :src="item.image_url">
+    <div class="menu_item_viewer_left" v-if="item.image">
+      <img :src="item.image.url">
     </div>
     <div class="menu_item_viewer_right">
       <div class="menu_item_viewer_name">{{item['name_' + selectedLang]}}</div>
