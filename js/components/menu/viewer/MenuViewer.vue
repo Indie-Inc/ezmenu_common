@@ -22,7 +22,7 @@
             <div class="menu_viewer_subsection" v-for="subsection in sectionItem.subsections">
               <h3 class="menu_viewer_subsection_name" v-show="subsection['subsection_name_' + selectedLang]">{{subsection['subsection_name_' + selectedLang]}}</h3>
               <ul class="menu_viewer_item_wrap">
-                <li v-for="content in subsection.contents">
+                <li v-for="content in subsection.contents" :class="{one_column: content.image_url}">
                   <component-item-viewer :item="content" :selected-lang="selectedLang"></component-item-viewer>
                 </li>
               </ul>

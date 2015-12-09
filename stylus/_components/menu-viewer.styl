@@ -103,6 +103,9 @@
     margin 0 0 15px
     vendor('column-break-inside', avoid)
 
+    &.one_column
+      vendor('column-count', 1)
+      
 .menu_viewer_footer
   border-top 1px solid #ddd
   padding-top 20px
@@ -112,8 +115,17 @@
     float right
 
 .component__menu_item_viewer
-  padding 15px
-  padding-bottom 5px
+  display table
+  width 100%
+
+  .menu_item_viewer_left
+    padding 15px 15px 5px
+    display table-cell
+    width 100px
+
+  .menu_item_viewer_right
+    padding 15px 15px 5px
+    display table-cell
 
   .menu_item_viewer_name
     color #333

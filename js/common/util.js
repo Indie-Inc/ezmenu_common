@@ -1,5 +1,3 @@
-import $ from 'jquery'
-
 var util = {
 
     _requests: {},

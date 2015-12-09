@@ -19,7 +19,6 @@
   "homepage": "https://github.com/Indie-Inc/ezmenu_common",
   "scripts": {},
   "dependencies": {
-    "jquery": "^2.1.4"
   },
   "peerDependencies": {},
   "devDependencies": {}

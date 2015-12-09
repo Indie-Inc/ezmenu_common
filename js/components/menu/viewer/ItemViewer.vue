@@ -1,5 +1,9 @@
 <template>
-    <div class="component__menu_item_viewer">
+  <div class="component__menu_item_viewer">
+    <div class="menu_item_viewer_left" v-if="item.image_url">
+      <img :src="item.image_url">
+    </div>
+    <div class="menu_item_viewer_right">
       <div class="menu_item_viewer_name">{{item['name_' + selectedLang]}}</div>
       <div class="menu_item_viewer_price" v-show="item.price !== 0">¥{{item.price | numberFormat}}</div>
       <div class="menu_item_viewer_desc">{{item['description_' + selectedLang]}}</div>
@@ -9,6 +13,7 @@
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script lang="babel">
