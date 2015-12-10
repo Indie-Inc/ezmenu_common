@@ -96,6 +96,9 @@
   vendor('column-gap', 15px)
   vendor('column-fill', balance)
 
+  &.one_column
+    vendor('column-count', 1)
+
   li
     width 100%
     display inline-block
@@ -103,9 +106,6 @@
     margin 0 0 15px
     vendor('column-break-inside', avoid)
 
-    &.one_column
-      vendor('column-count', 1)
-      
 .menu_viewer_footer
   border-top 1px solid #ddd
   padding-top 20px

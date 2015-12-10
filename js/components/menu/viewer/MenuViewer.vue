@@ -21,8 +21,8 @@
             <h2 class="menu_viewer_section_name" v-show="sectionItem['section_name_' + selectedLang]"><span>{{sectionItem['section_name_' + selectedLang]}}</span></h2>
             <div class="menu_viewer_subsection" v-for="subsection in sectionItem.subsections">
               <h3 class="menu_viewer_subsection_name" v-show="subsection['subsection_name_' + selectedLang]">{{subsection['subsection_name_' + selectedLang]}}</h3>
-              <ul class="menu_viewer_item_wrap">
-                <li v-for="content in subsection.contents" :class="{one_column: content.image_url}">
+              <ul class="menu_viewer_item_wrap" :class="{one_column: selectedMenu.style && selectedMenu.style.one_column}">
+                <li v-for="content in subsection.contents">
                   <component-item-viewer :item="content" :selected-lang="selectedLang"></component-item-viewer>
                 </li>
               </ul>
